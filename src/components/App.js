@@ -3,12 +3,14 @@ import IssueList from "./IssueList"
 
 const App = (props) => {
   const [issues, setIssues] = useState([])
+  // eslint-disable-next-line
   const [repo, setRepo] = useState("create-react-app")
 
   useEffect(
     () => {
       (async repo => {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/todos`).then(r => r.json())
+        const response = await fetch("https://api.github.com/repos/facebook/create-react-app/issues?per_page=25&page=1").then(r => r.json())
+        console.log(response);
         setIssues(response);
       })(repo);
     },
@@ -23,4 +25,4 @@ const App = (props) => {
 }
 export default App
 
-//https://github.com/facebook/create-react-app/issues
+//https://github.com//issues
