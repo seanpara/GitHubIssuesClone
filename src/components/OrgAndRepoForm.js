@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 
-const OrgAndRepoForm = ({org, repo}) => {
+const OrgAndRepoForm = ({org, repo, fetchIssues }) => {
   const [formOrg, setFormOrg] = useState("");
   const [formRepo, setFormRepo] = useState("");
-  const handleChange = event => {};
-  const handleSubmit = event => {};
+  const handleSubmit = event => {
+    event.preventDefault()
+    fetchIssues(formOrg, formRepo)
+    // setOrg(formOrg)
+    // setRepo(setRepo)
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label style={{ marginRight: "5%" }}>
         Organization Name
         <input
           placeholder={org}
           value={formOrg}
-          onChange={e => setFormOrg(e.value)}
+          onChange={e => setFormOrg(e.target.value)}
         />
       </label>
       <label>
@@ -20,7 +24,7 @@ const OrgAndRepoForm = ({org, repo}) => {
         <input
           placeholder={repo}
           value={formRepo}
-          onChange={e => setFormRepo(e.value)}
+          onChange={e => setFormRepo(e.target.value)}
         />
       </label>
       <input type="submit" name="submit" value="submit" />

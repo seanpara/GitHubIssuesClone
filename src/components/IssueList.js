@@ -10,8 +10,6 @@ const IssueList = (props) => {
     }
     else {
       return props.issueList.map(issue => {
-
-
         return <Issue key={issue.id} issue={issue}/>
       })
     }
