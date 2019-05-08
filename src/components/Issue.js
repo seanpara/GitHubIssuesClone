@@ -7,7 +7,7 @@ const Issue = ({issue}) => {
       style={{ border: "2px solid green", margin: "5px" }}
     >
       <h3>{issue.title}</h3>
-      <p>{issue.body}</p>
+      
     </div>
     )
 }

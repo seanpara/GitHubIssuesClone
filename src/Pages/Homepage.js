@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import IssueList from "./IssueList";
-import OrgAndRepoForm from "./OrgAndRepoForm";
+import React, { useState, useEffect } from 'react'
 
-const App = props => {
+import IssueList from "../components/IssueList";
+import OrgAndRepoForm from "../components/OrgAndRepoForm";
+
+
+const Homepage = (props) => {
   const [issues, setIssues] = useState([]);
   // eslint-disable-next-line
   const [org, setOrg] = useState("facebook");
@@ -14,10 +16,7 @@ const App = props => {
     )
       .then(r => r.json())
       .then(r => setIssues(r))
-      .catch(error => {
-        console.log(error);
-        return
-      });
+
   };
 
   useEffect(
@@ -30,13 +29,18 @@ const App = props => {
   if (issues.length === 0) {
     return null;
   }
-  return (
-    <>
-      <OrgAndRepoForm org={org} repo={repo} fetchIssues={fetchIssues} />
-      <IssueList issueList={issues} />;
-    </>
-  );
-};
-export default App;
 
-//https://github.com//issues
+  return(
+    <>
+      <OrgAndRepoForm
+        org={org}
+        repo={repo}
+        fetchIssues={fetchIssues}
+      />
+      <IssueList
+        issueList={issues}
+      />
+    </>
+  )
+}
+export default Homepage
