@@ -1,22 +1,27 @@
 import React from 'react'
+import { MDBRow, MDBCol } from "mdbreact";
+
 import Issue from "./Issue"
 
-const IssueList = (props) => {
+const IssueList = ({issueList}) => {
 
   const renderIssues = () => {
     //debugger
-    if(props.issueList.length === 0) {
+    if(issueList.length === 0) {
       return null
     }
     else {
-      return props.issueList.map(issue => {
+      console.log(issueList.length);
+      return issueList.map(issue => {
         return <Issue key={issue.id} issue={issue}/>
       })
     }
 
   }
   return(
-    <div>{renderIssues()}</div>
+    <MDBRow className="d-flex flex-column justify-content-center">
+      {renderIssues()}<
+    /MDBRow>
     )
 }
 export default IssueList

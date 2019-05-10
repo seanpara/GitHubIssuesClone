@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 
-const OrgAndRepoForm = ({org, repo, fetchIssues }) => {
+const OrgAndRepoForm = ({ org, repo, fetchIssues }) => {
   const [formOrg, setFormOrg] = useState("");
   const [formRepo, setFormRepo] = useState("");
   const handleSubmit = event => {
-    event.preventDefault()
-    fetchIssues(formOrg, formRepo)
+    event.preventDefault();
+    fetchIssues(formOrg, formRepo);
     // setOrg(formOrg)
     // setRepo(setRepo)
   };
+
+  const formStyle = { margin: "1% 2% 0% 5%" };
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={formStyle} onSubmit={handleSubmit}>
       <label style={{ marginRight: "5%" }}>
         Organization Name
         <input

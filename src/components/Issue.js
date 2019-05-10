@@ -1,20 +1,17 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
+import { MDBRow, MDBCol } from "mdbreact";
 
-const Issue = ({issue}) => {
-
+const Issue = ({ issue }) => {
   return (
-    <div
-      style={{ border: "2px solid green", margin: "5px" }}
-    >
+    <MDBCol style={{ border: "2px solid green", margin: "5px" }} md="12">
       <Link
         onClick={() => console.log("link clicked! on", issue.id)}
         to={{ pathname: `/issues/${issue.id}`, state: { issue } }}
       >
         <h3>{issue.title}</h3>
       </Link>
-
-    </div>
-    )
-}
-export default Issue
+    </MDBCol>
+  );
+};
+export default Issue;
